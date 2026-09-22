@@ -1,1 +1,2033 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title> DE MI PARA TI 🌻</title>
+
+    <style>
+        /* =====================================================
+   GENERAL
+===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            background: #000;
+
+            font-family: Arial, sans-serif;
+
+            touch-action: none;
+        }
+
+
+        /* =====================================================
+   PANTALLA DE ENTRADA
+===================================================== */
+
+        #entrada {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(circle at center,
+                    rgba(255, 220, 0, .14),
+                    transparent 30%),
+
+                radial-gradient(circle at center,
+                    rgba(255, 160, 0, .08),
+                    transparent 65%),
+
+                #000;
+
+            transition:
+
+                opacity 1.4s ease,
+
+                visibility 1.4s ease;
+
+        }
+
+
+        #entrada.salir {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+   BRILLO DE ENTRADA
+===================================================== */
+
+        .brilloEntrada {
+
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(circle,
+                    rgba(255, 220, 0, .22),
+                    transparent 70%);
+
+            filter: blur(35px);
+
+            animation:
+
+                brilloEntrada 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes brilloEntrada {
+
+            0% {
+
+                transform: scale(.75);
+
+                opacity: .4;
+
+            }
+
+            50% {
+
+                transform: scale(1.15);
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform: scale(.75);
+
+                opacity: .4;
+
+            }
+
+        }
+
+
+        /* =====================================================
+   CONTENIDO ENTRADA
+===================================================== */
+
+        .contenidoEntrada {
+
+            position: relative;
+
+            z-index: 10;
+
+            text-align: center;
+
+            padding: 30px;
+
+        }
+
+
+        /* =====================================================
+   FLOR CENTRAL ENTRADA
+===================================================== */
+
+        .miniFlor {
+
+            font-size: 100px;
+
+            margin-bottom: 10px;
+
+            filter:
+
+                drop-shadow(0 0 8px #fff700) drop-shadow(0 0 25px #ffc400) drop-shadow(0 0 50px #ff9900);
+
+            animation:
+
+                florEntrada 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes florEntrada {
+
+            0% {
+
+                transform:
+
+                    translateY(0) rotate(-5deg);
+
+            }
+
+            50% {
+
+                transform:
+
+                    translateY(-18px) rotate(5deg);
+
+            }
+
+            100% {
+
+                transform:
+
+                    translateY(0) rotate(-5deg);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   TITULO ENTRADA
+===================================================== */
+
+        .contenidoEntrada h1 {
+
+            color: #fff;
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 55px;
+
+            font-weight: normal;
+
+            text-shadow:
+
+                0 0 5px white,
+
+                0 0 15px white,
+
+                0 0 30px #ffd900,
+
+                0 0 60px #ffae00;
+
+        }
+
+
+        .contenidoEntrada h2 {
+
+            color: #fff36b;
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 72px;
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+
+                0 0 5px white,
+
+                0 0 15px #fff700,
+
+                0 0 35px #ffd000,
+
+                0 0 70px #ff9900;
+
+        }
+
+
+        .contenidoEntrada p {
+
+            color: rgba(255, 255, 255, .85);
+
+            font-size: 21px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        /* =====================================================
+   BOTON ENTRAR
+===================================================== */
+
+        #entrar {
+
+            border: none;
+
+            padding: 17px 35px;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            color: #3a2100;
+
+            background:
+
+                linear-gradient(135deg,
+                    #fff36b,
+                    #ffd000,
+                    #ffae00);
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            box-shadow:
+
+                0 0 10px #fff700,
+
+                0 0 25px #ffd000,
+
+                0 0 50px rgba(255, 180, 0, .8);
+
+            animation:
+
+                botonBrillo 2s ease-in-out infinite alternate;
+
+            transition:
+                transform .25s ease;
+
+        }
+
+
+        #entrar:hover {
+
+            transform: scale(1.08);
+
+        }
+
+
+        #entrar:active {
+
+            transform: scale(.94);
+
+        }
+
+
+        @keyframes botonBrillo {
+
+            from {
+
+                box-shadow:
+
+                    0 0 10px #fff700,
+
+                    0 0 25px #ffd000;
+
+            }
+
+            to {
+
+                box-shadow:
+
+                    0 0 20px white,
+
+                    0 0 40px #ffd000,
+
+                    0 0 70px #ff9d00;
+
+            }
+
+        }
+
+
+        /* =====================================================
+   FLORES DE LA ENTRADA
+===================================================== */
+
+        .floresEntrada {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .floresEntrada span {
+
+            position: absolute;
+
+            font-size: 55px;
+
+            filter:
+
+                drop-shadow(0 0 7px #ffd900) drop-shadow(0 0 18px #ffb700);
+
+            animation:
+
+                florVolando var(--velocidad) ease-in-out infinite alternate;
+
+        }
+
+
+        .floresEntrada span:nth-child(1) {
+            left: 7%;
+            top: 18%;
+            --velocidad: 3s;
+        }
+
+        .floresEntrada span:nth-child(2) {
+            left: 18%;
+            top: 65%;
+            --velocidad: 4s;
+        }
+
+        .floresEntrada span:nth-child(3) {
+            left: 82%;
+            top: 20%;
+            --velocidad: 3.5s;
+        }
+
+        .floresEntrada span:nth-child(4) {
+            left: 90%;
+            top: 70%;
+            --velocidad: 4.5s;
+        }
+
+        .floresEntrada span:nth-child(5) {
+            left: 10%;
+            top: 45%;
+            --velocidad: 3.8s;
+        }
+
+        .floresEntrada span:nth-child(6) {
+            left: 76%;
+            top: 78%;
+            --velocidad: 3.2s;
+        }
+
+        .floresEntrada span:nth-child(7) {
+            left: 30%;
+            top: 12%;
+            --velocidad: 4.2s;
+        }
+
+        .floresEntrada span:nth-child(8) {
+            left: 66%;
+            top: 12%;
+            --velocidad: 3.7s;
+        }
+
+
+        @keyframes florVolando {
+
+            from {
+
+                transform:
+
+                    translateY(0) rotate(-8deg) scale(.85);
+
+                opacity: .6;
+
+            }
+
+            to {
+
+                transform:
+
+                    translateY(-30px) rotate(8deg) scale(1.1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+   ESPACIO PRINCIPAL
+===================================================== */
+
+        #espacio {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            background: #000;
+
+        }
+
+
+        /* =====================================================
+   UNIVERSO
+===================================================== */
+
+        #universo {
+
+            position: absolute;
+
+            width: 2600px;
+
+            height: 2600px;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+
+                translate(-50%, -50%) scale(.55);
+
+            transform-origin: center center;
+
+        }
+
+
+        /* =====================================================
+   ESTRELLAS
+===================================================== */
+
+        .estrellas {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+
+                radial-gradient(circle,
+                    white 1px,
+                    transparent 1.5px),
+
+                radial-gradient(circle,
+                    rgba(255, 255, 255, .8) 1px,
+                    transparent 1.5px),
+
+                radial-gradient(circle,
+                    rgba(255, 225, 80, .8) 1px,
+                    transparent 1.5px);
+
+            background-size:
+
+                45px 45px,
+                75px 75px,
+                115px 115px;
+
+            background-position:
+
+                0 0,
+                25px 20px,
+                50px 70px;
+
+            opacity: .85;
+
+            animation:
+
+                estrellas 40s linear infinite;
+
+        }
+
+
+        @keyframes estrellas {
+
+            from {
+
+                background-position:
+                    0 0,
+                    25px 20px,
+                    50px 70px;
+
+            }
+
+            to {
+
+                background-position:
+                    100px 80px,
+                    130px 110px,
+                    180px 150px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+   ESTRELLAS GRANDES
+===================================================== */
+
+        .estrella {
+
+            position: absolute;
+
+            color: white;
+
+            font-size: 22px;
+
+            text-shadow:
+
+                0 0 5px white,
+                0 0 12px white,
+                0 0 20px #ffe900;
+
+            animation:
+
+                parpadear var(--tiempo) ease-in-out infinite alternate;
+
+        }
+
+
+        @keyframes parpadear {
+
+            from {
+
+                opacity: .2;
+
+                transform: scale(.5);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1.5);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   TITULO PRINCIPAL
+===================================================== */
+
+        .titulo {
+
+            position: absolute;
+
+            top: 100px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 1300px;
+
+            text-align: center;
+
+            color: #fff7a0;
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 68px;
+
+            line-height: 1.15;
+
+            text-shadow:
+
+                0 0 5px white,
+
+                0 0 15px white,
+
+                0 0 30px #ffd900,
+
+                0 0 60px #ffae00;
+
+            z-index: 100;
+
+        }
+
+
+        /* =====================================================
+   SISTEMA SOLAR DE FLORES
+===================================================== */
+
+        .sistema {
+
+            position: absolute;
+
+            left: 1300px;
+
+            top: 1300px;
+
+            width: 2200px;
+
+            height: 2200px;
+
+            transform:
+
+                translate(-50%, -50%);
+
+        }
+
+
+        /* =====================================================
+   ORBITAS
+===================================================== */
+
+        .orbita {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            border-radius: 50%;
+
+            transform:
+
+                translate(-50%, -50%);
+
+            border:
+
+                3px solid rgba(255, 255, 255, .88);
+
+            box-shadow:
+
+                0 0 5px rgba(255, 255, 255, .5),
+
+                0 0 12px rgba(255, 220, 0, .12);
+
+        }
+
+
+        /* =====================================================
+   ORBITAS GRANDES
+===================================================== */
+
+        .o1 {
+            width: 380px;
+            height: 380px;
+        }
+
+        .o2 {
+            width: 560px;
+            height: 560px;
+        }
+
+        .o3 {
+            width: 740px;
+            height: 740px;
+        }
+
+        .o4 {
+            width: 930px;
+            height: 930px;
+        }
+
+        .o5 {
+            width: 1120px;
+            height: 1120px;
+        }
+
+        .o6 {
+            width: 1310px;
+            height: 1310px;
+        }
+
+        .o7 {
+            width: 1500px;
+            height: 1500px;
+        }
+
+
+        /* =====================================================
+   ESTELAS DE MOVIMIENTO
+===================================================== */
+
+        .estela {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            border-radius: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            pointer-events: none;
+
+            animation:
+                estelaGira var(--tiempo) linear infinite;
+
+        }
+
+
+        .e1 {
+
+            width: 450px;
+            height: 450px;
+
+            border:
+                1px solid rgba(255, 50, 20, .35);
+
+            --tiempo: 7s;
+
+        }
+
+        .e2 {
+
+            width: 650px;
+            height: 650px;
+
+            border:
+                1px solid rgba(255, 150, 0, .35);
+
+            --tiempo: 10s;
+
+        }
+
+        .e3 {
+
+            width: 850px;
+            height: 850px;
+
+            border:
+                1px solid rgba(40, 255, 100, .25);
+
+            --tiempo: 13s;
+
+        }
+
+        .e4 {
+
+            width: 1050px;
+            height: 1050px;
+
+            border:
+                1px solid rgba(0, 220, 255, .25);
+
+            --tiempo: 16s;
+
+        }
+
+        .e5 {
+
+            width: 1250px;
+            height: 1250px;
+
+            border:
+                1px solid rgba(255, 50, 50, .25);
+
+            --tiempo: 20s;
+
+        }
+
+
+        @keyframes estelaGira {
+
+            from {
+
+                transform:
+                    translate(-50%, -50%) rotate(0deg) scale(.96);
+
+            }
+
+            50% {
+
+                transform:
+                    translate(-50%, -50%) rotate(180deg) scale(1.04);
+
+            }
+
+            to {
+
+                transform:
+                    translate(-50%, -50%) rotate(360deg) scale(.96);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   CENTRO BRILLANTE
+===================================================== */
+
+        .centro {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            width: 190px;
+
+            height: 190px;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(circle at 35% 30%,
+                    #fff 0%,
+                    #fff36b 12%,
+                    #ffd000 35%,
+                    #ff8c00 62%,
+                    #5c1800 100%);
+
+            box-shadow:
+
+                0 0 15px white,
+
+                0 0 35px #fff000,
+
+                0 0 70px #ffb700,
+
+                0 0 130px #ff7000,
+
+                0 0 200px rgba(255, 120, 0, .5);
+
+            z-index: 50;
+
+            animation:
+
+                centroPulso 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes centroPulso {
+
+            0% {
+
+                transform:
+                    translate(-50%, -50%) scale(.95);
+
+            }
+
+            50% {
+
+                transform:
+                    translate(-50%, -50%) scale(1.08);
+
+            }
+
+            100% {
+
+                transform:
+                    translate(-50%, -50%) scale(.95);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   ARO CENTRAL
+===================================================== */
+
+        .aro {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            width: 500px;
+
+            height: 150px;
+
+            transform:
+
+                translate(-50%, -50%) rotateX(65deg);
+
+            border-radius: 50%;
+
+            border:
+
+                18px solid #fff000;
+
+            box-shadow:
+
+                0 0 8px white,
+
+                0 0 20px #ffff00,
+
+                0 0 40px #ffd000,
+
+                0 0 80px #ff9d00;
+
+            z-index: 45;
+
+            animation:
+
+                aroGira 10s linear infinite;
+
+        }
+
+
+        @keyframes aroGira {
+
+            from {
+
+                transform:
+                    translate(-50%, -50%) rotateX(65deg) rotateZ(0deg);
+
+            }
+
+            to {
+
+                transform:
+                    translate(-50%, -50%) rotateX(65deg) rotateZ(360deg);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   FLORES ORBITALES
+===================================================== */
+
+        .grupoFlores {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            width: 0;
+
+            height: 0;
+
+            animation:
+                orbitaFlores var(--velocidad) linear infinite;
+
+        }
+
+
+        /* Cada flor se coloca desde el centro */
+
+        .flor {
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100px;
+
+            height: 100px;
+
+            margin-left: -50px;
+
+            margin-top: -50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 70px;
+
+            filter:
+
+                drop-shadow(0 0 8px #fff000) drop-shadow(0 0 20px #ffb700);
+
+            user-select: none;
+
+        }
+
+
+        /* =====================================================
+   ORBITAS DE FLORES
+===================================================== */
+
+        .g1 {
+            --radio: 190px;
+            --velocidad: 7s;
+        }
+
+        .g2 {
+            --radio: 280px;
+            --velocidad: 10s;
+        }
+
+        .g3 {
+            --radio: 370px;
+            --velocidad: 13s;
+        }
+
+        .g4 {
+            --radio: 465px;
+            --velocidad: 16s;
+        }
+
+        .g5 {
+            --radio: 560px;
+            --velocidad: 20s;
+        }
+
+        .g6 {
+            --radio: 655px;
+            --velocidad: 25s;
+        }
+
+        .g7 {
+            --radio: 750px;
+            --velocidad: 30s;
+        }
+
+
+        @keyframes orbitaFlores {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        /* =====================================================
+   POSICIONES DE LAS FLORES
+===================================================== */
+
+        .g1 .flor:nth-child(1) {
+            transform: translateX(190px);
+        }
+
+        .g1 .flor:nth-child(2) {
+            transform:
+                rotate(180deg) translateX(190px);
+        }
+
+
+        .g2 .flor:nth-child(1) {
+            transform: translateX(280px);
+        }
+
+        .g2 .flor:nth-child(2) {
+            transform:
+                rotate(120deg) translateX(280px);
+        }
+
+        .g2 .flor:nth-child(3) {
+            transform:
+                rotate(240deg) translateX(280px);
+        }
+
+
+        .g3 .flor:nth-child(1) {
+            transform: translateX(370px);
+        }
+
+        .g3 .flor:nth-child(2) {
+            transform:
+                rotate(90deg) translateX(370px);
+        }
+
+        .g3 .flor:nth-child(3) {
+            transform:
+                rotate(180deg) translateX(370px);
+        }
+
+        .g3 .flor:nth-child(4) {
+            transform:
+                rotate(270deg) translateX(370px);
+        }
+
+
+        .g4 .flor:nth-child(1) {
+            transform: translateX(465px);
+        }
+
+        .g4 .flor:nth-child(2) {
+            transform:
+                rotate(72deg) translateX(465px);
+        }
+
+        .g4 .flor:nth-child(3) {
+            transform:
+                rotate(144deg) translateX(465px);
+        }
+
+        .g4 .flor:nth-child(4) {
+            transform:
+                rotate(216deg) translateX(465px);
+        }
+
+        .g4 .flor:nth-child(5) {
+            transform:
+                rotate(288deg) translateX(465px);
+        }
+
+
+        .g5 .flor:nth-child(1) {
+            transform: translateX(560px);
+        }
+
+        .g5 .flor:nth-child(2) {
+            transform:
+                rotate(60deg) translateX(560px);
+        }
+
+        .g5 .flor:nth-child(3) {
+            transform:
+                rotate(120deg) translateX(560px);
+        }
+
+        .g5 .flor:nth-child(4) {
+            transform:
+                rotate(180deg) translateX(560px);
+        }
+
+        .g5 .flor:nth-child(5) {
+            transform:
+                rotate(240deg) translateX(560px);
+        }
+
+        .g5 .flor:nth-child(6) {
+            transform:
+                rotate(300deg) translateX(560px);
+        }
+
+
+        .g6 .flor:nth-child(1) {
+            transform: translateX(655px);
+        }
+
+        .g6 .flor:nth-child(2) {
+            transform:
+                rotate(90deg) translateX(655px);
+        }
+
+        .g6 .flor:nth-child(3) {
+            transform:
+                rotate(180deg) translateX(655px);
+        }
+
+        .g6 .flor:nth-child(4) {
+            transform:
+                rotate(270deg) translateX(655px);
+        }
+
+
+        .g7 .flor:nth-child(1) {
+            transform: translateX(750px);
+        }
+
+        .g7 .flor:nth-child(2) {
+            transform:
+                rotate(120deg) translateX(750px);
+        }
+
+        .g7 .flor:nth-child(3) {
+            transform:
+                rotate(240deg) translateX(750px);
+        }
+
+
+        /* =====================================================
+   TAMAÑOS DE FLORES
+===================================================== */
+
+        .g1 .flor {
+            font-size: 65px;
+        }
+
+        .g2 .flor {
+            font-size: 75px;
+        }
+
+        .g3 .flor {
+            font-size: 65px;
+        }
+
+        .g4 .flor {
+            font-size: 82px;
+        }
+
+        .g5 .flor {
+            font-size: 60px;
+        }
+
+        .g6 .flor {
+            font-size: 78px;
+        }
+
+        .g7 .flor {
+            font-size: 70px;
+        }
+
+
+        /* =====================================================
+   TEXTOS
+===================================================== */
+
+        .texto {
+
+            position: absolute;
+
+            color: white;
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 30px;
+
+            white-space: nowrap;
+
+            text-shadow:
+
+                0 0 7px white,
+
+                0 0 15px #ffd900,
+
+                0 0 30px #ffb700;
+
+            animation:
+
+                textoFlota 4s ease-in-out infinite;
+
+            z-index: 80;
+
+        }
+
+
+        @keyframes textoFlota {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .t1 {
+            left: 380px;
+            top: 1050px;
+        }
+
+        .t2 {
+            left: 1800px;
+            top: 1000px;
+        }
+
+        .t3 {
+            left: 430px;
+            top: 1500px;
+        }
+
+        .t4 {
+            left: 1700px;
+            top: 1550px;
+        }
+
+        .t5 {
+            left: 1050px;
+            top: 1900px;
+        }
+
+
+        /* =====================================================
+   INSTRUCCIONES
+===================================================== */
+
+        .instruccion {
+
+            position: fixed;
+
+            bottom: 15px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            color:
+                rgba(255, 255, 255, .55);
+
+            font-size: 14px;
+
+            z-index: 200;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+   MOVIL
+===================================================== */
+
+        @media(max-width:600px) {
+
+            .contenidoEntrada h1 {
+                font-size: 36px;
+            }
+
+            .contenidoEntrada h2 {
+                font-size: 48px;
+            }
+
+            .contenidoEntrada p {
+                font-size: 17px;
+            }
+
+            #entrar {
+                font-size: 17px;
+                padding: 15px 25px;
+            }
+
+            .miniFlor {
+                font-size: 75px;
+            }
+
+            .titulo {
+                font-size: 48px;
+                width: 1000px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     ENTRADA
+===================================================== -->
+
+    <div id="entrada">
+
+        <div class="brilloEntrada"></div>
+
+        <div class="floresEntrada">
+
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🏵️</span>
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🏵️</span>
+            <span>🌻</span>
+            <span>🌼</span>
+
+        </div>
+
+
+        <div class="contenidoEntrada">
+
+            <div class="miniFlor">
+                🌻
+            </div>
+
+            <h1>
+                Feliz día de las
+            </h1>
+
+            <h2>
+                Flores Amarillas
+            </h2>
+
+            <button id="entrar">
+                🌻 Iniciar 🌻
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     ESPACIO
+===================================================== -->
+
+    <div id="espacio">
+
+
+        <div id="universo">
+
+
+            <!-- =====================================================
+     ESTRELLAS
+===================================================== -->
+
+            <div class="estrellas"></div>
+
+
+            <div class="estrella" style="left:7%;top:10%;--tiempo:2s">✦</div>
+
+            <div class="estrella" style="left:15%;top:30%;--tiempo:3s">✧</div>
+
+            <div class="estrella" style="left:25%;top:8%;--tiempo:2.5s">✦</div>
+
+            <div class="estrella" style="left:35%;top:22%;--tiempo:3.5s">✧</div>
+
+            <div class="estrella" style="left:45%;top:8%;--tiempo:2s">✦</div>
+
+            <div class="estrella" style="left:58%;top:15%;--tiempo:3s">✧</div>
+
+            <div class="estrella" style="left:70%;top:8%;--tiempo:2.5s">✦</div>
+
+            <div class="estrella" style="left:82%;top:25%;--tiempo:3.2s">✧</div>
+
+            <div class="estrella" style="left:94%;top:12%;--tiempo:2s">✦</div>
+
+            <div class="estrella" style="left:5%;top:55%;--tiempo:3s">✧</div>
+
+            <div class="estrella" style="left:18%;top:75%;--tiempo:2s">✦</div>
+
+            <div class="estrella" style="left:30%;top:90%;--tiempo:3.5s">✧</div>
+
+            <div class="estrella" style="left:45%;top:80%;--tiempo:2.5s">✦</div>
+
+            <div class="estrella" style="left:60%;top:92%;--tiempo:3s">✧</div>
+
+            <div class="estrella" style="left:75%;top:78%;--tiempo:2s">✦</div>
+
+            <div class="estrella" style="left:90%;top:88%;--tiempo:3s">✧</div>
+
+
+            <!-- =====================================================
+     TITULO
+===================================================== -->
+
+            <div class="titulo">
+
+                Feliz día de las<br>
+                Flores Amarillas 🌻
+
+            </div>
+
+
+            <!-- =====================================================
+     SISTEMA
+===================================================== -->
+
+            <div class="sistema">
+
+
+                <!-- ORBITAS -->
+
+                <div class="orbita o1"></div>
+
+                <div class="orbita o2"></div>
+
+                <div class="orbita o3"></div>
+
+                <div class="orbita o4"></div>
+
+                <div class="orbita o5"></div>
+
+                <div class="orbita o6"></div>
+
+                <div class="orbita o7"></div>
+
+
+                <!-- ESTELAS -->
+
+                <div class="estela e1"></div>
+
+                <div class="estela e2"></div>
+
+                <div class="estela e3"></div>
+
+                <div class="estela e4"></div>
+
+                <div class="estela e5"></div>
+
+
+                <!-- =====================================================
+     FLORES EN MOVIMIENTO
+===================================================== -->
+
+
+                <div class="grupoFlores g1">
+
+                    <div class="flor">🌻</div>
+                    <div class="flor">🌼</div>
+
+                </div>
+
+
+                <div class="grupoFlores g2">
+
+                    <div class="flor">🌼</div>
+                    <div class="flor">🌻</div>
+                    <div class="flor">🏵️</div>
+
+                </div>
+
+
+                <div class="grupoFlores g3">
+
+                    <div class="flor">🌻</div>
+                    <div class="flor">🌼</div>
+                    <div class="flor">🏵️</div>
+                    <div class="flor">🌻</div>
+
+                </div>
+
+
+                <div class="grupoFlores g4">
+
+                    <div class="flor">🌼</div>
+                    <div class="flor">🌻</div>
+                    <div class="flor">🏵️</div>
+                    <div class="flor">🌼</div>
+                    <div class="flor">🌻</div>
+
+                </div>
+
+
+                <div class="grupoFlores g5">
+
+                    <div class="flor">🌻</div>
+                    <div class="flor">🌼</div>
+                    <div class="flor">🏵️</div>
+                    <div class="flor">🌻</div>
+                    <div class="flor">🌼</div>
+                    <div class="flor">🏵️</div>
+
+                </div>
+
+
+                <div class="grupoFlores g6">
+
+                    <div class="flor">🌼</div>
+                    <div class="flor">🌻</div>
+                    <div class="flor">🏵️</div>
+                    <div class="flor">🌻</div>
+
+                </div>
+
+
+                <div class="grupoFlores g7">
+
+                    <div class="flor">🌻</div>
+                    <div class="flor">🌼</div>
+                    <div class="flor">🏵️</div>
+
+                </div>
+
+
+                <!-- =====================================================
+     CENTRO
+===================================================== -->
+
+                <div class="aro"></div>
+
+                <div class="centro"></div>
+
+
+            </div>
+
+
+            <!-- =====================================================
+     FRASES
+===================================================== -->
+
+            <div class="texto t1">
+                La mejor 🌻
+            </div>
+
+            <div class="texto t2">
+                Feliz día 💛
+            </div>
+
+            <div class="texto t3">
+                Eres gruñona✨
+            </div>
+
+            <div class="texto t4">
+                Para ti 🌻
+            </div>
+
+            <div class="texto t5">
+                🌻 la mejor 🌻
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="instruccion">
+
+        🖱️ Arrastra · 🔍 Zoom · 🌻 Flores en movimiento
+
+    </div>
+
+
+
+    <script>
+
+        /* =====================================================
+           ENTRADA
+        ===================================================== */
+
+        const entrada =
+            document.getElementById("entrada");
+
+        const botonEntrar =
+            document.getElementById("entrar");
+
+
+        botonEntrar.addEventListener(
+            "click",
+            function () {
+
+                entrada.classList.add("salir");
+
+            }
+        );
+
+
+        /* =====================================================
+           MOVIMIENTO DEL UNIVERSO
+        ===================================================== */
+
+        const universo =
+            document.getElementById("universo");
+
+
+        let x = 0;
+
+        let y = 0;
+
+        let escala = .55;
+
+
+        /* =====================================================
+           ACTUALIZAR
+        ===================================================== */
+
+        function actualizar() {
+
+            universo.style.transform =
+
+                `translate(
+            calc(-50% + ${x}px),
+            calc(-50% + ${y}px)
+        )
+        scale(${escala})`;
+
+        }
+
+
+        /* =====================================================
+           MOUSE
+        ===================================================== */
+
+        let arrastrando = false;
+
+        let inicioX = 0;
+
+        let inicioY = 0;
+
+
+        document.addEventListener(
+            "mousedown",
+            function (e) {
+
+                arrastrando = true;
+
+                inicioX =
+                    e.clientX - x;
+
+                inicioY =
+                    e.clientY - y;
+
+            }
+        );
+
+
+        document.addEventListener(
+            "mousemove",
+            function (e) {
+
+                if (!arrastrando)
+                    return;
+
+                x =
+                    e.clientX - inicioX;
+
+                y =
+                    e.clientY - inicioY;
+
+                actualizar();
+
+            }
+        );
+
+
+        document.addEventListener(
+            "mouseup",
+            function () {
+
+                arrastrando = false;
+
+            }
+        );
+
+
+        /* =====================================================
+           ZOOM
+        ===================================================== */
+
+        document.addEventListener(
+            "wheel",
+            function (e) {
+
+                e.preventDefault();
+
+
+                if (e.deltaY < 0) {
+
+                    escala += .07;
+
+                }
+                else {
+
+                    escala -= .07;
+
+                }
+
+
+                escala =
+                    Math.max(
+                        .35,
+                        Math.min(
+                            2.5,
+                            escala
+                        )
+                    );
+
+
+                actualizar();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =====================================================
+           TOUCH
+        ===================================================== */
+
+        let touchX = 0;
+
+        let touchY = 0;
+
+        let distanciaInicial = 0;
+
+
+        document.addEventListener(
+            "touchstart",
+            function (e) {
+
+                if (e.touches.length === 1) {
+
+                    touchX =
+                        e.touches[0].clientX - x;
+
+                    touchY =
+                        e.touches[0].clientY - y;
+
+                }
+
+
+                if (e.touches.length === 2) {
+
+                    distanciaInicial =
+                        distancia(
+                            e.touches[0],
+                            e.touches[1]
+                        );
+
+                }
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        document.addEventListener(
+            "touchmove",
+            function (e) {
+
+                e.preventDefault();
+
+
+                if (e.touches.length === 1) {
+
+                    x =
+                        e.touches[0].clientX - touchX;
+
+                    y =
+                        e.touches[0].clientY - touchY;
+
+                    actualizar();
+
+                }
+
+
+                if (e.touches.length === 2) {
+
+                    const nuevaDistancia =
+                        distancia(
+                            e.touches[0],
+                            e.touches[1]
+                        );
+
+
+                    escala +=
+
+                        (
+                            nuevaDistancia -
+                            distanciaInicial
+                        ) * .002;
+
+
+                    escala =
+                        Math.max(
+                            .35,
+                            Math.min(
+                                2.5,
+                                escala
+                            )
+                        );
+
+
+                    distanciaInicial =
+                        nuevaDistancia;
+
+
+                    actualizar();
+
+                }
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =====================================================
+           CALCULAR DISTANCIA
+        ===================================================== */
+
+        function distancia(a, b) {
+
+            const dx =
+                a.clientX -
+                b.clientX;
+
+            const dy =
+                a.clientY -
+                b.clientY;
+
+            return Math.sqrt(
+                dx * dx +
+                dy * dy
+            );
+
+        }
+
+
+        /* =====================================================
+           DOBLE CLICK = RESTAURAR
+        ===================================================== */
+
+        document.addEventListener(
+            "dblclick",
+            function () {
+
+                x = 0;
+
+                y = 0;
+
+                escala = .55;
+
+                actualizar();
+
+            }
+        );
+
+
+        actualizar();
+
+    </script>
+
+</body>
+
+</html>
